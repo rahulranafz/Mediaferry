@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Mediaferry" duration-ms="104930" started-at="2017-09-25T11:29:19Z" finished-at="2017-09-25T11:31:04Z">
+    <groups>
+    </groups>
+    <test name="Registration test" duration-ms="104930" started-at="2017-09-25T11:29:19Z" finished-at="2017-09-25T11:31:04Z">
+      <class name="tests.UploadTest">
+        <test-method status="PASS" signature="start()[pri:0, instance:tests.UploadTest@14bf9759]" name="start" is-config="true" duration-ms="32223" started-at="2017-09-25T16:59:19Z" finished-at="2017-09-25T16:59:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="uploadFileByUploadBtnAtFeedActivity()[pri:0, instance:tests.UploadTest@14bf9759]" name="uploadFileByUploadBtnAtFeedActivity" duration-ms="49276" started-at="2017-09-25T16:59:51Z" finished-at="2017-09-25T17:00:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadFileByUploadBtnAtFeedActivity -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.UploadTest@14bf9759]" name="tearDown" is-config="true" duration-ms="23415" started-at="2017-09-25T17:00:40Z" finished-at="2017-09-25T17:01:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.UploadTest -->
+    </test> <!-- Registration test -->
+  </suite> <!-- Mediaferry -->
+</testng-results>
