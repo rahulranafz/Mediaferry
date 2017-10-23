@@ -36,20 +36,20 @@ public class ProofingComponentTest {
     public void creatingNewProject() throws Exception {
         loginSteps.login(driver, softAssert, driverObj.getUsername(), driverObj.getPassword());
         homeSteps.waitingForHeaderLnksSpinner(driver);
-        projectName = "My Test Project  795_2017-10-23";
-        /*projectName = utilityMethods.createUniqueProjectName(driverObj.getProjectName());
+        //projectName = "My Test Project  795_2017-10-23";
+        projectName = utilityMethods.createUniqueProjectName(driverObj.getProjectName());
         projectCountBefore = homeSteps.projectCountBefore(driver);
         homeSteps.creatingNewProject(driver);
         createNewProjectSteps.fillingDetails(driver, projectName, driverObj.getCampaign(), driverObj.getBrandName(), driverObj.getCreativeLevel(), driverObj.getFilePath(), driverObj.getPriority(), driverObj.getProjectOwner(), driverObj.getInstructions(), driverObj.getTeam(), driverObj.getWidth(), driverObj.getHeight());
         createNewProjectSteps.submittingJob(driver,softAssert, projectName);
         projectCountAfter = homeSteps.projectCountAfter(driver);
-        homeSteps.verifyProjectCount(driver, softAssert, projectCountBefore+1, projectCountAfter);*/
+        homeSteps.verifyProjectCount(driver, softAssert, projectCountBefore+1, projectCountAfter);
     }
 
     @Test(priority = 2)
     public void editingProject() throws InterruptedException {
-        homeSteps.goToActiveProjectsPage(driver);
-        homeSteps.waitingForConstantLnksSpinner(driver);
+        /*homeSteps.goToActiveProjectsPage(driver);
+        homeSteps.waitingForConstantLnksSpinner(driver);*/
         activeProjectsSteps.selectProjectForEdit(driver, softAssert, projectName);
         createNewProjectSteps.changeProductionStatus(driver);
         createNewProjectSteps.uploadFinishedArtwork(driver, softAssert, driverObj.getFilePath(), "The selected files has been uploaded successfully.");
