@@ -4,7 +4,7 @@ import BaseClasses.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-import webpages.LoginPage;
+import pages.LoginPage;
 
 public class LoginSteps extends BasePage {
 
@@ -19,9 +19,12 @@ public class LoginSteps extends BasePage {
 
     public void logout(WebDriver driver, SoftAssert softAssert) {
         loginPage.mouseHoverOnProfileName(driver);
-        //loginPage.clickOnProfileAdjacentDownIcon(driver);
         loginPage.clickOnLogout(driver);
         loginPage.verifyLogout(driver, softAssert);
+    }
+
+    public void verifyValidation(WebDriver driver, SoftAssert softAssert){
+        loginPage.checkValidationOfSession(driver, softAssert);
     }
 
     public void invalidLogin(WebDriver driver, SoftAssert softAssert, String invalidUsername, String password) {

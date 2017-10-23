@@ -1,6 +1,8 @@
 package utilities;
 
 import java.security.SecureRandom;
+import java.util.Random;
+import BaseClasses.BasePage;
 
 import org.openqa.selenium.WebDriver;
 
@@ -35,6 +37,17 @@ public class UtilityMethods {
 		}
 
 	}
+
+	public String createUniqueProjectName(String projectName){
+		BasePage basePage = new BasePage();
+		Random rand = new Random();
+		int  projectSuffix = rand.nextInt(1000) + 1;
+		String uniqueProjectName = projectName+ "  " + projectSuffix + "_"+ basePage.getCurrentDate();
+		// update the project name in singleton list
+		JobIdManager.getInstance().putJobId(uniqueProjectName, projectName);
+		return uniqueProjectName;
+
+	}
 	
 	/**
 	 * <h1> Switch the browser window</h1>
@@ -43,7 +56,7 @@ public class UtilityMethods {
 	 * @throws InterruptedException 
 	 * */
 	public void swichToWindow(WebDriver driver,int index) throws InterruptedException{
-		Object[] wh=driver.getWindowHandles().toArray();
+		Object[] wh = driver.getWindowHandles().toArray();
 		driver.switchTo().window(wh[index].toString());
 	}
 	

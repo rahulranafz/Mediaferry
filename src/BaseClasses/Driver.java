@@ -72,6 +72,18 @@ public class Driver {
 		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "filePath");
 	}
 
+	public String getLogoPath() {
+		FileOperations fileOperations = new FileOperations();
+		Constants constants = new Constants();
+		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "logoPath");
+	}
+
+	public String getMyProfilePath() {
+		FileOperations fileOperations = new FileOperations();
+		Constants constants = new Constants();
+		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "myProfilePath");
+	}
+
 	public String getPriority() {
 		FileOperations fileOperations = new FileOperations();
 		Constants constants = new Constants();
@@ -126,12 +138,33 @@ public class Driver {
 		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "mother_email");
 	}
 
+	public String getSharedWithMailOne(){
+		FileOperations fileOperations = new FileOperations();
+		Constants constants = new Constants();
+		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "sharingMailOne");
+
+	}
+
+    public String getSharedWithMailTwo(){
+        FileOperations fileOperations = new FileOperations();
+        Constants constants = new Constants();
+        return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "sharingMailTwo");
+
+    }
+
 	public WebDriver createDriver() throws IOException {
 		String osType = getOperatingSystemType();
 		String browserName = getBrowserType();
 
 		if (browserName.equalsIgnoreCase("firefox") || browserName.equalsIgnoreCase("ff")) {
-			System.setProperty("webdriver.gecko.driver", "src/../libs/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "src/../libs/geckodriver");
+			if (osType.equals("Linux")) {
+				System.setProperty("webdriver.gecko.driver", "src/../libs/geckodriver");
+			} else if (osType.equals("MacOS")) {
+				System.setProperty("webdriver.gecko.driver", "src/../libs/geckodrivermac");
+			} else {
+				System.setProperty("webdriver.gecko.driver", "src/../libs/geckodriver.exe");
+			}
 			webdriver = new FirefoxDriver();
 			webdriver.manage().window().maximize();
 		} else if (browserName.equalsIgnoreCase("chrome") || browserName.equalsIgnoreCase("ch")) {
@@ -191,10 +224,22 @@ public class Driver {
 		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "username");
 	}
 
+    public String getProfileName() {
+        FileOperations fileOperations = new FileOperations();
+        Constants constants = new Constants();
+        return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "profileName");
+    }
+
 	public String getPassword() {
 		FileOperations fileOperations = new FileOperations();
 		Constants constants = new Constants();
 		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "password");
+	}
+
+	public String getChangePassword() {
+		FileOperations fileOperations = new FileOperations();
+		Constants constants = new Constants();
+		return fileOperations.getValueFromPropertyFile(constants.CONFIG_WEB_FILE_PATH, "changePassword");
 	}
 
 	public String getInvalidUsername() {

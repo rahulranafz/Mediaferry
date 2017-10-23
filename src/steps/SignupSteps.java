@@ -3,8 +3,8 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-import webpages.LoginPage;
-import webpages.SignupPage;
+import pages.LoginPage;
+import pages.SignupPage;
 
 public class SignupSteps{
 

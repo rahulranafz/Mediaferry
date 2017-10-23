@@ -1,0 +1,14 @@
+<suite name="Mediaferry">
+	<test name='Registration test'>
+		<classes>
+		    <class name="tests.LoginTest"></class>
+			<class name="tests.SignupTest"></class>
+		    <class name="tests.CreateNewProjectTest"></class> -->
+			<class name="tests.EditProjectTest"></class>
+			<class name="tests.UploadDownloadAssetsTest"></class>
+		</classes>
+	</test>
+	<listeners>
+		<listener class-name="utilities.ScreenshotOnFailureListener" />
+	</listeners>
+</suite>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Mediaferry]">
+  <listeners>
+    <listener class-name="utilities.ScreenshotOnFailureListener"/>
+  </listeners>
+  <test name="Registration test(failed)">
+    <classes>
+      <class name="tests.UploadTest">
+        <methods>
+          <include name="uploadFileByUploadBtnAtFeedActivity"/>
+          <include name="tearDown"/>
+          <include name="start"/>
+        </methods>
+      </class> <!-- tests.UploadTest -->
+    </classes>
+  </test> <!-- Registration test(failed) -->
+</suite> <!-- Failed suite [Mediaferry] -->

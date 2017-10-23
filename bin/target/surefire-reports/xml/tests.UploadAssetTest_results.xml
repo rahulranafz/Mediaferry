@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Registration test"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="266.310">
+  <properties />
+  
+  
+            <testcase name="uploadFileByUploadBtnAtFeedActivity" time="77.958" classname="tests.UploadAssetTest" />
+                <testcase name="uploadFileByEditingActivityFeed" time="188.352" classname="tests.UploadAssetTest" />
+      
+</testsuite>

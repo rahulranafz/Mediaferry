@@ -3,13 +3,12 @@ package BaseClasses;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class BasePage {
 
@@ -22,11 +21,11 @@ public class BasePage {
 		scrollToElement(driver, element);
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(element));
 	}
+
 	public void waitForElementPresence(WebDriver driver, By element)	{
 		WebDriverWait webDriverWait =  new WebDriverWait(driver, 120);
 		webDriverWait.until(ExpectedConditions.presenceOfElementLocated(element));	
 	}
-	
 
 	public void scrollToElementWithoutWait(WebDriver driver, By elem) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(elem));
@@ -38,7 +37,7 @@ public class BasePage {
 	}
 
 	public void waitForElementClickable(WebDriver driver, By elem) {
-		WebDriverWait webDriverWait = new WebDriverWait(driver, 120);
+		WebDriverWait webDriverWait = new WebDriverWait(driver, 60);
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(elem));
 	}
 
@@ -52,16 +51,6 @@ public class BasePage {
 		webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(elem));
 	}
 
-	/**
-	 * <h1>This method is scroll to buttom</h1>
-	 * <p>
-	 * This method scroll to bottom of the any element
-	 * 
-	 * @param driver
-	 *            driver of the browser
-	 * @param elmentId
-	 *            It is the element id
-	 */
 	public void scrollDownOfElement(WebDriver driver, String elmentId) {
 		waitForElementVisibility(driver, (By.id(elmentId)));
 		String myScript = "document.getElementById('" + elmentId + "').scrollTop = document.getElementById('" + elmentId
@@ -70,6 +59,7 @@ public class BasePage {
 	}
 
 	public void scrollTop(WebDriver driver) {
+
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0)");
 	}
 
@@ -94,5 +84,29 @@ public class BasePage {
 		Date date = new Date();
 		return dateFormat.format(date);
 	}
+
+	public static void chromeBugClick(WebDriver driver, By clickThis) throws InterruptedException{
+		//https://code.google.com/p/selenium/issues/detail?id=2766
+		int n=10;
+		String errorMessage;
+		for (int i=1; i<=n; i++)
+		{
+			try {
+				driver.findElement(clickThis).click();
+                break;
+			} catch(WebDriverException driverException) {
+				Thread.sleep(1000);
+				errorMessage = driverException.toString();
+			}
+			if(i==n)
+			{
+				Assert.fail("Failed to click "+n+" times \n" + errorMessage);
+			}
+		}
+	}
+
+	public void scrollDownToPage (WebDriver driver){
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
 
 }

@@ -1,10 +1,21 @@
 <suite name="Mediaferry">
 	<test name='Registration test'>
 		<classes>
-		<!-- <class name="tests.LoginTest"></class>
-			<class name="tests.SignupTest"></class>-->
-		<!-- 	<class name="tests.CreateEditProjectTest"></class> -->
-			<class name="tests.UploadTest"></class>
+		    <class name="tests.LoginTest"></class>
+			<class name="tests.SignupTest"></class>
+		    <class name="tests.CreateNewProjectTest"></class> -->
+			<class name="tests.EditProjectTest"></class>
+			<class name="tests.UploadDownloadAssetsTest"></class>
+			<class name="tests.UploadAssetsByProofingTest"></class>
+			<class name="tests.UploadAssetsByRespondTest"></class>
+			<class name="tests.QueryActionTest"></class>
+			<class name="tests.QueryEmailTriggerTest"></class>
+			<class name="tests.RespondFunctionalityTest"></class>
+			<class name="tests.RepondViaMailTest"></class>
+			<class name="tests.ChangePasswordTest"></class>
+			<class name="tests.UploadProfilePicTest"></class>
+			<class name="tests.ActivityFeedFunctionalityTest"></class>
+			<class name="tests.ShareProjectTest"></class>
 		</classes>
 	</test>
 	<listeners>
